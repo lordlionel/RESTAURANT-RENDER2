@@ -1,0 +1,94 @@
+Crée une application web complète pour la gestion d’une cantine (exemple : SITAB) avec :
+
+🔹 Backend (Flask – Python, hébergé sur Railway ou Replit)
+
+Base de données : SQLite.
+
+Endpoints API REST :
+
+/api/consommateurs
+
+GET : liste des consommateurs
+
+POST : ajouter un consommateur
+
+DELETE : supprimer un consommateur
+
+/api/presences
+
+POST : marquer un consommateur comme présent pour la journée
+
+/api/consommations
+
+POST : ajouter une consommation (700 F ou 1000 F) liée à un consommateur + date du jour
+
+GET : récupérer toutes les consommations du jour
+
+/api/rapport/journalier
+
+Génère et retourne un fichier Word (.docx) listant les consommations du jour sous forme de tableau (Nom – Montant – Date)
+
+En bas du fichier, afficher le Total journalier en FCFA
+
+Dépendances backend : Flask, Flask-CORS, sqlite3, python-docx.
+
+Organisation des fichiers backend :
+
+backend/
+  ├── app.py           # Flask server
+  ├── models.py        # SQLite models (Consommateurs, Présences, Consommations)
+  ├── requirements.txt # Dépendances Flask
+  └── database.db      # SQLite
+
+🔹 Frontend (React – hébergé sur Netlify)
+
+Pages principales :
+
+Dashboard : vue d’ensemble des présences et consommations.
+
+Consommateurs : liste avec possibilité d’ajouter et supprimer.
+
+Présences : interface avec cases à cocher pour marquer les présents.
+
+Consommations : boutons rapides (700 F / 1000 F) pour enregistrer un repas.
+
+Rapports : bouton “Exporter en Word” → télécharge le fichier depuis l’API Flask.
+
+UI : utiliser TailwindCSS ou Bootstrap pour un design simple, responsive et moderne.
+
+Communication avec backend : via fetch ou axios (ex : http://localhost:5000/api/...).
+
+Organisation des fichiers frontend :
+
+frontend/
+  ├── src/
+  │    ├── App.js
+  │    ├── components/
+  │    │      ├── Dashboard.js
+  │    │      ├── Consommateurs.js
+  │    │      ├── Presences.js
+  │    │      ├── Consommations.js
+  │    │      └── Rapport.js
+  │    └── services/api.js   # fichier central pour appels API
+  ├── package.json
+  └── tailwind.config.js (si Tailwind utilisé)
+
+🔹 Fonctionnalités attendues
+
+Ajout et suppression de consommateurs.
+
+Marquage des présences quotidiennes.
+
+Gestion des repas (700 F / 1000 F).
+
+Export Word avec total journalier.
+
+Interface simple et responsive.
+
+🔹 Hébergement
+
+Backend Flask → déployer sur Railway ou Replit.
+
+Frontend React → déployer sur Netlify.
+
+Configurer les appels API (.env) pour pointer vers l’URL du backend déployé.
